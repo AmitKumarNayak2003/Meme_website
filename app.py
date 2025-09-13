@@ -1,26 +1,27 @@
-# app.py
-# This is the backend server that finds and serves memes.
+#meme stuff
+#
+#use backend public server to finds and give me memes.
 
-# We need to import the Flask library to create our web server,
-# requests to fetch data from the meme API,
-# and CORS to allow our HTML frontend to communicate with this server.
+#i need flask to create my web server,
+#which requests to fetch data from the public meme API thing,
+# and CORS to allow the HTML frontend to communicate with this server.
 from flask import Flask, jsonify
 from flask_cors import CORS
 import requests
 import random
 
-# Initialize the Flask application
+# Initialize the flask app 
 app = Flask(__name__)
-# Enable Cross-Origin Resource Sharing (CORS). This is a security feature
+# enabled Cross-Origin Resource Sharing (CORS). (its for security and stuff)
 # that allows your HTML file (running on a different "origin") to make
 # requests to this Python server.
-CORS(app)
+CORS(app)  # <-- gibs me security
 
-# This is the URL of the public API we'll use to get memes.
-# It's a simple API that doesn't require an API key.
+# found the public URL of the public API used to get memes.
+# doesn't require an API key, wich is nice and all.
 MEME_API_URL = "https://meme-api.com/gimme"
 
-# Define a "route" for our server. This means when a web browser
+# defined a route for the server. tldr it means when a web browser
 # or our frontend asks for the "/get-meme" page, this function will run.
 @app.route('/get-meme')
 def get_meme():
@@ -66,3 +67,4 @@ if __name__ == '__main__':
     # port=5000 is the standard port for Flask development.
     # debug=True will show detailed errors in the browser and auto-reload the server on code changes.
     app.run(host='0.0.0.0', port=5000, debug=True)
+
